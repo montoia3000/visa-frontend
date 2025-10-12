@@ -1,0 +1,9 @@
+<section class="descarga-section">
+  <h2>Descargar todos los registros</h2>
+  <button class="btn primary" (click)="descargarRegistros()" [disabled]="descargando">
+    {{ descargando ? 'Descargando...' : 'Descargar registros' }}
+  </button>
+
+  <p *ngIf="error" style="color:red">{{ error }}</p>
+</section>
+

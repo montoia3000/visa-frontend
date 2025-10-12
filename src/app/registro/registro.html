@@ -1,0 +1,48 @@
+<section id="registro" class="form-section">
+  <div class="container">
+    <h2>Regístrate para tu evaluación gratuita</h2>
+    <form [formGroup]="registroForm" (ngSubmit)="onSubmit()" novalidate>
+      <div class="form-grid">
+        <label>Nombre completo
+          <input type="text" formControlName="name" placeholder="Tu nombre">
+        </label>
+        <label>Teléfono
+          <input type="tel" formControlName="phone" placeholder="+52 55 1234 5678">
+        </label>
+        <label>Correo electrónico
+          <input type="email" formControlName="email" placeholder="tu@email.com">
+        </label>
+        <label>Programa de interés
+          <select formControlName="program">
+            <option value="trabajo">Trabajo</option>
+            <option value="estudio">Estudio</option>
+            <option value="residencia">Residencia</option>
+            <option value="otro">Otro</option>
+          </select>
+        </label>
+        <label class="checkbox">
+          <input type="checkbox" formControlName="consentPrivacy">
+          <span>Acepto el <a href="/privacy.html" target="_blank">Aviso de Privacidad</a>.</span>
+        </label>
+        <label class="checkbox">
+          <input type="checkbox" formControlName="consentContact">
+          <span>Acepto ser contactado vía teléfono/correo.</span>
+        </label>
+      </div>
+      <button class="btn primary" type="submit">Enviar</button>
+    </form>
+  </div>
+
+  <!-- Modal de éxito -->
+  <div class="modal-success" *ngIf="mostrarModal">
+    <div class="modal-content">
+      <div class="icon-circle">
+        <span class="checkmark">✔️</span>
+      </div>
+      <h3>¡Registro exitoso!</h3>
+      <p>Nos pondremos en contacto contigo vía teléfono o correo electrónico.</p>
+      <button class="btn primary" (click)="cerrarModal()">Aceptar</button>
+    </div>
+  </div>
+</section>
+
