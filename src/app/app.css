@@ -1,57 +1,118 @@
-:root{
-  --primary:#2b6cb0;
-  --primary-dark:#234e80;
-  --accent:#38b2ac;
-  --bg:#f7fafc;
-  --text:#1a202c;
-  --muted:#718096;
-  --white:#fff;
+:root {
+  --primary: #2b6cb0;
+  --primary-dark: #234e80;
+  --accent: #38b2ac;
+  --bg: #f7fafc;
+  --text: #1a202c;
+  --muted: #718096;
+  --white: #fff;
 }
 
+/* --------------------------------------------------- */
+/* RESET & BASE */
 * {
-    box-sizing:border-box
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-    margin:0;
-    font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvetica Neue',Arial,'Noto Sans',sans-serif;
-    color:var(--text);
-    background:var(--bg);
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+  color: var(--text);
+  background: var(--bg);
 }
 
-
+/* --------------------------------------------------- */
+/* HEADER */
 .site-header {
   background: linear-gradient(180deg, #ffffff, #eef2f7);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 12px 24px;
+  flex-wrap: wrap;
 }
 
 .logo {
   font-weight: 800;
-  font-size: 2.7rem;
-  margin-left: 300px;    
-  flex: 1;               
+  font-size: 2rem;
 }
 
 .logo span {
   color: var(--primary);
 }
 
-.nav {
+nav {
   display: flex;
-  font-size: 1.3rem;
-  align-items: center;
-  padding: 12px 0;
-  gap: 40px;
-  justify-content: flex-start;
-  padding-right: 200px; 
+  gap: 24px;
+  flex-wrap: wrap;
 }
-
 
 nav a {
-  margin-left: 30px;
   text-decoration: none;
   color: var(--text);
+  font-size: 1.1rem;
+  transition: color 0.3s;
 }
 
+nav a:hover {
+  color: var(--primary);
+}
+
+/* --------------------------------------------------- */
+/* HERO */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  background-image: url('../assets/banner.png');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.hero-overlay {
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 40px 20px;
+  border-radius: 16px;
+  max-width: 700px;
+  width: 90%;
+}
+
+.hero-content h1 {
+  font-weight: 800;
+  font-size: 3rem;
+  margin-bottom: 16px;
+}
+
+.hero-content .white-text {
+  color: white;
+}
+
+.hero-content .blue-text {
+  color: #00bfff;
+}
+
+.hero-content .green-text {
+  color: #00ffb3;
+  font-size: 1rem;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: 16px;
+  color: white;
+}
 
 .btn {
   display: inline-block;
@@ -62,152 +123,62 @@ nav a {
   cursor: pointer;
 }
 
-.btn.small {
-  padding: 8px 12px;
-  font-size: 0.9rem;
-}
-
 .btn.primary {
   color: var(--white);
   background: #02a6dd;
+  transition: background 0.3s;
 }
 
 .btn.primary:hover {
   background: var(--primary-dark);
 }
 
-.btn.outline {
-  border: 1px solid var(--primary);
-  background: transparent;
-  color: var(--primary);    
+/* --------------------------------------------------- */
+/* ABOUT SECTION */
+.about {
+  padding: 80px 20px;
+  text-align: center;
 }
 
-/*------------------------------------------------------------------------------------------------------------*/
-
-/* imagen de fondo */
-.hero {
-  position: relative;
-  width: 100%;
-  height: 500px; 
-  background-image: url('../assets/banner.png'); 
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.about .logo {
+  font-size: 2rem;
+  margin-bottom: 20px;
 }
-
-/* Overlay semi-transparente para resaltar el recuadro */
-.hero-overlay {
-  background-color: rgba(0, 0, 0, 0.24); /* blanco semitransparente */
-  padding: 40px 20px;
-  border-radius: 16px;
-  max-width: 600px;
-  margin-right: 900px;
-}
-
-/* Contenido del hero */
-.hero-content h1 {
-  font-weight: 800; 
-  font-size: 3rem; 
-  letter-spacing: 1px;
-  margin: 0;
-  padding: 1rem 0; 
-  margin-bottom: 16px;
-  color: var(--text);
-}
-
-.hero-content .white-text {
-  color: white;
-}
-
-.hero-content .blue-text {
-  color: #00bfff; 
-}
-
-.hero-content .green-text {
-  color: #00ffb3;
-  font-size: 1.3rem; 
-}
-
-.hero-content p {
-  font-size: 1.3rem;
-  margin-bottom: 24px;
-  color: var(--text);
-  color: white;
-}
-
-.hero-content .btn.primary {
-  padding: 12px 24px;
-  font-size: 1rem;
-}
-
-/* Responsive */
-@media (max-width: 800px) {
-  .hero {
-    height: 400px;
-  }
-  .hero-overlay {
-    padding: 30px 16px;
-  }
-  .hero-content h1 {
-    font-size: 1.5rem;
-  }
-  .hero-content p {
-    font-size: 0.9rem;
-  }
-}
-
-/*------------------------------------------------------------------------------------------------------------*/
 
 .subtitulo {
   font-weight: 800;
-  font-size: 2.7rem;
-  margin-left: 685px;
-  margin-bottom: 70px;    
-  flex: 1;  
-  padding-top: 40px;             
+  font-size: 2.5rem;
+  margin-bottom: 50px;
 }
 
 .subtitulo span {
   color: var(--primary);
 }
 
-.about {
-  padding: 80px 0;
-}
-
-.about .logo {
-  display: flex;
-  margin-left: 785px;
-  text-align: center;
-}
-
-
 .about-container {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
+  gap: 40px;
   max-width: 1100px;
   margin: 0 auto;
-  gap: 40px;
-  padding: 0 20px;
 }
 
-/* Imagen de fondo controlada por CSS */
 .about-image {
   flex: 1;
-  min-width: 320px;
+  min-width: 300px;
   height: 480px;
   background-image: url('../assets/picture.png');
   background-size: cover;
   background-position: center;
+  border-radius: 16px;
 }
 
 .about-content {
   flex: 1;
-  min-width: 320px;
+  min-width: 300px;
+  text-align: left;
 }
 
 .about-content h2 {
@@ -224,41 +195,61 @@ nav a {
   margin-bottom: 24px;
 }
 
-.benefit {
-  margin-bottom: 16px;
-}
-
 .benefit h3 {
-  color: var(--primary-dark);
-  margin-bottom: 6px;
+  display: inline-block;
+  background-color: #004e9b;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-weight: 700;
 }
 
-.benefits-list h3 {
-  display: inline-block;              /* Para que el fondo solo cubra el texto */
-  background-color: #004e9b;          /* Azul marino */
-  color: white;                       /* Texto blanco para buen contraste */
-  padding: 4px 8px;                   /* Espaciado tipo resaltado */
-  border-radius: 6px;                 /* Bordes suaves */
-  font-weight: 700;                   /* Que se vea sólido */
+/* --------------------------------------------------- */
+/* RESPONSIVE DESIGN */
+@media (max-width: 1024px) {
+  .hero-content h1 {
+    font-size: 2.2rem;
+  }
 }
 
-
-.benefit p {
-  margin: 0;
-  color: var(--muted);
-  font-size: 1rem;
-}
-
-/* Responsivo */
 @media (max-width: 768px) {
-  .about-container {
+  .nav {
     flex-direction: column;
     text-align: center;
   }
 
-  .about-image {
-    width: 90%;
-    height: 300px;
+  nav {
+    justify-content: center;
+  }
+
+  .hero {
+    height: 400px;
+  }
+
+  .hero-content h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+  }
+
+  .about-content {
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo {
+    font-size: 1.6rem;
+  }
+
+  .subtitulo {
+    font-size: 1.8rem;
+  }
+
+  .hero-content h1 {
+    font-size: 1.5rem;
   }
 }
 
