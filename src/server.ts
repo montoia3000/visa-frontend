@@ -33,7 +33,7 @@ app.use((req, res, next) => {
 
 // Levantar servidor
 if (isMainModule(import.meta.url) || process.env['pm_id']) {
-  const port = process.env.PORT || 4000;
+  const port = process.env['PORT'] || 4000;
   app.listen(port, () => {
     console.log(`Node server listening on http://localhost:${port}`);
   });
